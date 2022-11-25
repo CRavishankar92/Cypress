@@ -13,7 +13,7 @@ describe('My Second test suite', function(){
         cy.get('@productLocator').find('.product').each(($e1, index, $list) => {
         const vegText =$e1.find('h4.product-name').text()
         if (vegText.includes('Cashews')){
-            $e1.find('button').click()
+            cy.wrap($e1).find('button').click()
         }
         })
         cy.get('.cart-icon > img').click()

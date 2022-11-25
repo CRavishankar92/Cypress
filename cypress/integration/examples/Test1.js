@@ -20,14 +20,14 @@ describe('My first test suite', function(){
 
         const vegText =$e1.find('h4.product-name').text()
         if (vegText.includes('Cashews')){
-            $e1.find('button').click()
+            cy.wrap($e1).find('button').click()
         }
         })
         //Assert if logo text is displayed correct
-        cy.get('.brand').should('have.text','GREENKART')
         //Print in test runner logs
         cy.get('.brand').then(function(logoelement){
             cy.log(logoelement.text())
         })
+        cy.get('.brand').should('have.text','GREENKART')
     })
 })
